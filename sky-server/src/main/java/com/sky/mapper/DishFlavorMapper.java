@@ -14,6 +14,12 @@ public interface DishFlavorMapper {
      * 批量插入口味数据
      * @param dishFlavor
      */
-    public void addFlavor(List<DishFlavor> dishFlavor);
+    void addFlavor(List<DishFlavor> dishFlavor);
 
+
+    /**
+     * 删除口味数据
+     * @param ids
+     */
+    void deleteFlavor(String[] ids);
 }
