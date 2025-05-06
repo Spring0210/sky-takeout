@@ -34,11 +34,12 @@ public interface DishMapper {
     //删除菜品
     void delete(String[] ids);
 
-    /**
-     * 根据id查询菜品
-     * @param id
-     * @return
-     */
+    //根据id查询菜品
     @Select("select * from dish where id = #{id}")
     Dish getById(String id);
+
+
+    //动态修改菜品数据
+    @AutoFill(value = OperationType.UPDATE)
+    void update(Dish dish);
 }

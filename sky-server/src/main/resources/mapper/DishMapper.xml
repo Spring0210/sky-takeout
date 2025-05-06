@@ -10,6 +10,7 @@
     </insert>
 
 
+
     <select id="page" resultType="com.sky.vo.DishVO">
         select dish.* , category.name as category_name from dish left outer join category on dish.category_id =
         category.id
@@ -36,5 +37,36 @@
             #{id}
         </foreach>
     </delete>
+
+    <update id="update">
+        update dish
+        <set>
+            <if test="name != null">
+                dish.name = #{name},
+            </if>
+            <if test="categoryId != null">
+                dish.category_id = #{categoryId},
+            </if>
+            <if test="price != null">
+                dish.price = #{price},
+            </if>
+            <if test="image != null">
+                dish.name = #{name},
+            </if>
+            <if test="description != null">
+                dish.description = #{description},
+            </if>
+            <if test="status != null">
+                dish.status = #{status},
+            </if>
+            <if test="updateTime != null">
+                dish.update_time = #{updateTime},
+            </if>
+            <if test="updateUser != null">
+                dish.update_user = #{updateUser},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
 </mapper>
